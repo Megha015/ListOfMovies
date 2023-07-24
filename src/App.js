@@ -13,9 +13,9 @@ const App = () => {
   const searchMovies = async (title) => {
     const result = await fetch(`${API_URL}&s=${title}`);
     const data = await result.json();
-    setMovie(data.Search || []); // Set movie to an empty array if data.Search is not available
-    setSearchQuery(title); // Set the search query in the state
-    setSearch(""); // Clear the search input after search
+    setMovie(data.Search || []);
+    setSearchQuery(title);
+    setSearch("");
   };
 
   const handleChange = (event) => {
@@ -47,7 +47,7 @@ const App = () => {
         />
       </div>
       <div>
-        {searchQuery && <h1>Results for {searchQuery}</h1>}
+        {searchQuery && <h1 className="resu">Results for {searchQuery}</h1>}
         {movie?.length > 0 ? (
           <div className="container">
             {movie.map((movie) => (
