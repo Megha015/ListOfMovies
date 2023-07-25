@@ -5,9 +5,9 @@ import Movies from "./components/Movies";
 
 // const API_URL = "http://www.omdbapi.com/?i=tt3896198&apikey=53e45db6";
 // const API_URL = process.env.API_URL;
-// const API_URL = "http://localhost:5000/movies";
+const API_URL = "http://localhost:5000/movies";
 // App.js
-const API_URL = "https://movie1-qnu1.onrender.com/movies"; // Replace with your actual backend URL
+// const API_URL = "https://movie1-qnu1.onrender.com/movies"; // Replace with your actual backend URL
 
 const App = () => {
   const [movie, setMovie] = useState();

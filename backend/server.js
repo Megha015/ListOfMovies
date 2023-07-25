@@ -13,17 +13,20 @@ app.use(cors());
 app.get("/movies/:title", async (req, res) => {
   try {
     const { title } = req.params;
+    console.log("Received request for title:", title);
 
     require("dotenv").config(); // Load environment variables from .env file
     const apiKey = process.env.OMDB_API_KEY;
 
     const response = await axios.get(
-      `http://www.omdbapi.com/?apikey=${apiKey}&s=${title}`
+      //  `http://www.omdbapi.com/?apikey=${apiKey}&s=${title}`
+      `http://www.omdbapi.com/?i=tt3896198&apikey=${apiKey}&s=${title}`
     );
     const data = response.data;
-
+    console.log("Sending response:", data);
     res.json(data);
   } catch (error) {
+    console.error("Error occurred:", error);
     res.status(500).json({ error: "Something went wrong" });
   }
 });
