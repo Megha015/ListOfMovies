@@ -21,12 +21,15 @@ app.get("/movies/:title", async (req, res) => {
     const response = await axios.get(
       `http://www.omdbapi.com/?apikey=${apiKey}&s=${title}`
     );
+    // const response = await axios.get(
+    //   `http://www.omdbapi.com/?apikey=53e45db6&s=batman`
+    // );
     const data = response.data;
     console.log("Sending response:", data);
     res.json(data);
   } catch (error) {
     console.error("Error occurred:", error);
-    res.status(500).json({ error: "Something went wrong" });
+    res.status(500).json({ error: "Something is going wrong" });
   }
 });
 
